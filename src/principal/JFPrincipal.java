@@ -5,6 +5,9 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import ejercicio1.VentanaContactos;
+
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -15,11 +18,14 @@ import java.awt.CardLayout;
 import javax.swing.JLabel;
 import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Insets;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
+import java.awt.Dialog.ModalExclusionType;
 
 public class JFPrincipal extends JFrame {
 
@@ -51,13 +57,48 @@ public class JFPrincipal extends JFrame {
 		btnPanel.add(btnEjercicio1);
 		btnEjercicio1.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
+		btnEjercicio1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//Creo ventana ej 1
+				System.out.println("EJERCICIO 1 CREADO");
+				VentanaContactos windowContacto = new VentanaContactos();
+			}
+		});
+		
 		JButton btnEjercicio2 = new JButton("Ejercicio 2");
 		btnPanel.add(btnEjercicio2);
 		btnEjercicio2.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
+		btnEjercicio2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// Creo ventana ej 2
+				System.out.println("EJERCICIO 2 CREADO");
+				/*
+				 ACA CREAMOS LA VENTANA DEL EJERCICIO 2
+				 */
+				
+			}
+		});
+		
 		JButton btnEjercicio3 = new JButton("Ejercicio 3");
 		btnPanel.add(btnEjercicio3);
 		btnEjercicio3.setAlignmentX(Component.CENTER_ALIGNMENT);
+		
+		btnEjercicio3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// // Creo ventana ej 3
+				System.out.println("EJERCICIO 3 CREADO");
+				/*
+				 ACA CREAMOS LA VENTANA DEL EJERCICIO 2
+				 */
+			}
+		});
 		
 		JLabel lblGrupo = new JLabel("GRUPO NRO: 4");
 		lblGrupo.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -85,6 +126,8 @@ public class JFPrincipal extends JFrame {
 					.addGap(76))
 		);
 		containerPanel.setLayout(gl_containerPanel);
+		
+		
 	}
 
 }
