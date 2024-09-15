@@ -9,9 +9,6 @@ public class Principal {
 		jfPrincipal.setVisible(true);
 		
 		
-		
-		VentanaContactos window = new VentanaContactos();
-		
 	}
 
 }
