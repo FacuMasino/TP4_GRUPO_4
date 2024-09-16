@@ -79,6 +79,10 @@ public class EventoBoton implements ActionListener
 		if(allCompleted)
 		{
 			data.setText(name.getText()+ " " + lastName.getText() + " " + telephone.getText()+ " " + birthdate.getText());
+			name.setText(null);
+			lastName.setText(null);
+			telephone.setText(null);
+			birthdate.setText(null);
 		}
 		else 
 		{

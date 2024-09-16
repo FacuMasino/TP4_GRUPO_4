@@ -103,7 +103,6 @@ public class VentanaContactos extends JFrame {
 		eventoB.setTelephone(txtTelephone);
 		eventoB.setBirthdate(txtBirthdate);
 		
-		//Por aca Gonzo...
 		JButton btnShow = new JButton("Mostrar");
 		
 		btnShow.addActionListener(eventoB);
