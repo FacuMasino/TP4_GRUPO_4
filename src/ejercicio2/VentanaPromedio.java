@@ -14,7 +14,7 @@ public class VentanaPromedio extends JFrame
     public VentanaPromedio()
     {
     	setTitle("Promedio");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(200, 200, 600, 400);
 
         // Panel contenedor
