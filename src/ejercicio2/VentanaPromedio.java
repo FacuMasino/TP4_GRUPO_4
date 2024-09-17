@@ -134,29 +134,19 @@ public class VentanaPromedio extends JDialog
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				
-				String valorCbo = (String) cboTp.getSelectedItem();
-				double nota1 = Double.parseDouble(nota1Txt.getText());
-				double nota2 = Double.parseDouble(nota2Txt.getText());
-				double nota3 = Double.parseDouble(nota3Txt.getText());
-				double promedio = (nota1 + nota2 + nota3) / 3;
-				
-				if(nota1 < 6 || nota2 < 6 || nota3 < 6 || valorCbo.equals("Desaprobado")) 
-				{
-					condicionTxt.setText("Libre");
-				} 
-				else if (nota1 >= 8 && nota2 >= 8 && nota3 >= 8 &&valorCbo.equals("Aprobado")) 
-				{
-					condicionTxt.setText("Promocionado");
-				} 
-				else 
-				{
-					condicionTxt.setText("Regular");
+				try {
+					JTextField[] jtfNota  = {nota1Txt, nota2Txt, nota3Txt};
+					double[] notas = UtilsPromedio.obtenerNotas(jtfNota);
+					
+					double promedio = (notas[0] + notas[1] + notas[2]) / 3;
+					
+					promedioTxt.setText(Double.toString(promedio));
+					condicionTxt.setText(UtilsPromedio.obtenerCondicion(notas, cboTp));
+				} catch (Exception ex) {
+					System.out.println("Campos Inválidos.");
+					System.out.println(ex.getMessage());
 				}
-				
-				promedioTxt.setText(Double.toString(promedio));
-				 
 			}
-        	
         	
         });
         
