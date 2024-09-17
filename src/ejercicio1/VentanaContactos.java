@@ -17,6 +17,8 @@ import java.awt.Dialog.ModalExclusionType;
 import java.awt.Window.Type;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import java.awt.Insets;
 
 public class VentanaContactos extends JFrame {
 
@@ -32,6 +34,7 @@ public class VentanaContactos extends JFrame {
 	private JLabel lblTelephone;
 	private JLabel lblBirthdate;
 	private JLabel lblDataUser;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -55,11 +58,12 @@ public class VentanaContactos extends JFrame {
 	public VentanaContactos() {
 		setTitle("Contactos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(200, 200, 550, 400);
+		setBounds(200, 200, 750, 474);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new GridLayout(0, 2, 0, 0));
+		contentPane.setLayout(new GridLayout(0, 2, 0, 30));
+		
 		
 		lblName = new JLabel("Nombre:");
 		contentPane.add(lblName);
@@ -89,13 +93,12 @@ public class VentanaContactos extends JFrame {
 		contentPane.add(txtBirthdate);
 		txtBirthdate.setColumns(10);
 		
-		
-		
 		JLabel lblData = new JLabel("Los datos ingresados fueron:");
 		contentPane.add(lblData);
 		
 		lblDataUser = new JLabel("");
 		contentPane.add(lblDataUser);
+		
 		
 		EventoBoton eventoB = new EventoBoton(lblDataUser);
 		eventoB.setName(txtName);
@@ -103,10 +106,14 @@ public class VentanaContactos extends JFrame {
 		eventoB.setTelephone(txtTelephone);
 		eventoB.setBirthdate(txtBirthdate);
 		
+		lblNewLabel = new JLabel("");
+		contentPane.add(lblNewLabel);
+		
 		JButton btnShow = new JButton("Mostrar");
+		contentPane.add(btnShow);
 		
 		btnShow.addActionListener(eventoB);
-		contentPane.add(btnShow);
+		
 		
 		setVisible(true);
 	}

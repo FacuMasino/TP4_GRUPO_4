@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class EventoBoton implements ActionListener
@@ -35,6 +36,7 @@ public class EventoBoton implements ActionListener
 	{	
 		allCompleted=false;
 		
+		
 		if(name.getText().equals(""))
 		{
 			name.setBackground(Color.RED);
@@ -57,7 +59,7 @@ public class EventoBoton implements ActionListener
 		{
 			telephone.setBackground(Color.RED);
 		}
-		else 
+		else  
 		{
 			telephone.setBackground(Color.WHITE);
 		}
@@ -75,10 +77,11 @@ public class EventoBoton implements ActionListener
 		{
 			allCompleted = true;
 		}
-		
+	
 		if(allCompleted)
 		{
-			data.setText(name.getText()+ " " + lastName.getText() + " " + telephone.getText()+ " " + birthdate.getText());
+			data.setText( name.getText()+ "  -  " + lastName.getText() + "  -  " + telephone.getText()+ "  -  " + birthdate.getText());
+			
 			name.setText(null);
 			lastName.setText(null);
 			telephone.setText(null);
@@ -86,7 +89,7 @@ public class EventoBoton implements ActionListener
 		}
 		else 
 		{
-			data.setText("Complete los campos...");
+			data.setText("Complete los campos que se encuentran vacios...");
 		}
 	}
 	
