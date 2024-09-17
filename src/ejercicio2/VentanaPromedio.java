@@ -5,13 +5,15 @@ import java.awt.GridBagLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+
 import java.awt.GridLayout;
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class VentanaPromedio extends JFrame
+public class VentanaPromedio extends JDialog
 {
     private static final long serialVersionUID = 1L;
     private JTextField nota2Txt;
@@ -23,6 +25,7 @@ public class VentanaPromedio extends JFrame
 
     public VentanaPromedio()
     {
+    	setModal(true);
     	setTitle("Promedio");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(200, 200, 480, 360);

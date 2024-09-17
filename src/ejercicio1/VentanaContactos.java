@@ -1,26 +1,15 @@
 package ejercicio1;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JTextField;
-import java.awt.Dialog.ModalExclusionType;
-import java.awt.Window.Type;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
-import java.awt.Insets;
 
-public class VentanaContactos extends JFrame {
+public class VentanaContactos extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -37,25 +26,11 @@ public class VentanaContactos extends JFrame {
 	private JLabel lblNewLabel;
 
 	/**
-	 * Launch the application.
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaContactos frame = new VentanaContactos();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public VentanaContactos() {
+		
+		setModal(true);
 		setTitle("Contactos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(200, 200, 750, 474);
@@ -101,10 +76,10 @@ public class VentanaContactos extends JFrame {
 		
 		
 		EventoBoton eventoB = new EventoBoton(lblDataUser);
-		eventoB.setName(txtName);
-		eventoB.setLastName(txtLastName);
-		eventoB.setTelephone(txtTelephone);
-		eventoB.setBirthdate(txtBirthdate);
+		eventoB.addJTextField(txtName);
+		eventoB.addJTextField(txtLastName);
+		eventoB.addJTextField(txtTelephone);
+		eventoB.addJTextField(txtBirthdate);
 		
 		lblNewLabel = new JLabel("");
 		contentPane.add(lblNewLabel);
