@@ -5,9 +5,13 @@ import java.awt.GridBagLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -19,7 +23,7 @@ public class VentanaPromedio extends JDialog
     private JTextField nota2Txt;
     private JTextField nota3Txt;
     private JTextField nota1Txt;
-    private JTextField tpsTxt;
+    private JComboBox<String> cboTp;
     private JTextField promedioTxt;
     private JTextField condicionTxt;
 
@@ -82,14 +86,16 @@ public class VentanaPromedio extends JDialog
         tpsLbl.setHorizontalAlignment(SwingConstants.CENTER);
         panelL1.add(tpsLbl);
         
-        tpsTxt = new JTextField();
-        panelL1.add(tpsTxt);
-        tpsTxt.setColumns(10);
+        cboTp = new JComboBox<>();
+        cboTp.addItem("Seleccionar");
+        cboTp.addItem("Aprobado");
+        cboTp.addItem("Desaprobado");
+        panelL1.add(cboTp);
         
         // Panel izquierdo 2
         
         JPanel panelL2 = new JPanel();
-        panelL2.setBorder(new TitledBorder(null, "Promedio y condici\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+        panelL2.setBorder(new TitledBorder(null, "Promedio y condicion", TitledBorder.LEADING, TitledBorder.TOP, null, null));
         panelL.add(panelL2);
         panelL2.setLayout(new GridLayout(2, 2, 0, 20));
         
@@ -101,7 +107,7 @@ public class VentanaPromedio extends JDialog
         panelL2.add(promedioTxt);
         promedioTxt.setColumns(10);
         
-        JLabel condicionLbl = new JLabel("Condición:");
+        JLabel condicionLbl = new JLabel("Condicion:");
         condicionLbl.setHorizontalAlignment(SwingConstants.CENTER);
         panelL2.add(condicionLbl);
         
@@ -123,12 +129,56 @@ public class VentanaPromedio extends JDialog
         
         JButton calcularBtn = new JButton("Calcular");
         panelR.add(calcularBtn);
+        calcularBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				String valorCbo = (String) cboTp.getSelectedItem();
+				double nota1 = Double.parseDouble(nota1Txt.getText());
+				double nota2 = Double.parseDouble(nota2Txt.getText());
+				double nota3 = Double.parseDouble(nota3Txt.getText());
+				double promedio = (nota1 + nota2 + nota3) / 3;
+				
+				if(nota1 < 6 || nota2 < 6 || nota3 < 6 || valorCbo.equals("Desaprobado")) 
+				{
+					condicionTxt.setText("Libre");
+				} 
+				else if (nota1 >= 8 && nota2 >= 8 && nota3 >= 8 &&valorCbo.equals("Aprobado")) 
+				{
+					condicionTxt.setText("Promocionado");
+				} 
+				else 
+				{
+					condicionTxt.setText("Regular");
+				}
+				
+				promedioTxt.setText(Double.toString(promedio));
+				 
+			}
+        	
+        	
+        });
         
         JButton nuevoBtn = new JButton("Nuevo");
         panelR.add(nuevoBtn);
+        nuevoBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				nota1Txt.setText("");
+				nota2Txt.setText("");
+				nota3Txt.setText("");
+				condicionTxt.setText("");
+				promedioTxt.setText("");
+				cboTp.setSelectedItem("Seleccionar");
+			}
+        	
+        });
         
         JButton salirBtn = new JButton("Salir");
         panelR.add(salirBtn);
+
 
 
         // Agregar panel contenedor al frame
