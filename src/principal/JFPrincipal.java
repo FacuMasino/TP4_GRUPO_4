@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import ejercicio1.VentanaContactos;
 import ejercicio2.VentanaPromedio;
+import ejercicio3.VentanaSeleccion;
 
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
@@ -62,7 +63,6 @@ public class JFPrincipal extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//Creo ventana ej 1
 				System.out.println("EJERCICIO 1 CREADO");
 				VentanaContactos windowContacto = new VentanaContactos();
 			}
@@ -76,7 +76,6 @@ public class JFPrincipal extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// Creo ventana ej 2
 				System.out.println("EJERCICIO 2 CREADO");
 				VentanaPromedio ventanaPromedio = new VentanaPromedio();
 				
@@ -91,11 +90,8 @@ public class JFPrincipal extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// // Creo ventana ej 3
 				System.out.println("EJERCICIO 3 CREADO");
-				/*
-				 ACA CREAMOS LA VENTANA DEL EJERCICIO 2
-				 */
+				VentanaSeleccion ventanaSeleccion = new VentanaSeleccion();
 			}
 		});
 		
