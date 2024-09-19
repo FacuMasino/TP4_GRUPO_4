@@ -135,16 +135,28 @@ public class VentanaPromedio extends JDialog
 			public void actionPerformed(ActionEvent arg0) {
 				
 				try {
+					
 					JTextField[] jtfNota  = {nota1Txt, nota2Txt, nota3Txt};
 					double[] notas = UtilsPromedio.obtenerNotas(jtfNota);
 					
 					double promedio = (notas[0] + notas[1] + notas[2]) / 3;
 					
-					promedioTxt.setText(Double.toString(promedio));
-					condicionTxt.setText(UtilsPromedio.obtenerCondicion(notas, cboTp));
+					double redondeo = Math.pow(10, 2);
+					promedio = Math.round(promedio * redondeo)/ redondeo; 
+					if(promedio >10) {
+						promedioTxt.setText("Revise notas");
+					}
+					else {
+						promedioTxt.setText(Double.toString(promedio));
+						condicionTxt.setText(UtilsPromedio.obtenerCondicion(notas, cboTp));
+					}
+				
+				
 				} catch (Exception ex) {
+					
 					System.out.println("Campos Inválidos.");
 					System.out.println(ex.getMessage());
+					
 				}
 			}
         	
@@ -167,9 +179,13 @@ public class VentanaPromedio extends JDialog
         });
         
         JButton salirBtn = new JButton("Salir");
+        salirBtn.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		dispose();
+        	}
+
+        });
         panelR.add(salirBtn);
-
-
 
         // Agregar panel contenedor al frame
 

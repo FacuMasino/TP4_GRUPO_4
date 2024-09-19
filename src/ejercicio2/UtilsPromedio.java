@@ -2,9 +2,12 @@ package ejercicio2;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import javax.swing.text.JTextComponent;
+
 
 public class UtilsPromedio {
 
+	
 	// Devuelve un array tipo double con las 3 notas
 	public static double[] obtenerNotas(JTextField[] notas) {
 		try {
@@ -19,8 +22,15 @@ public class UtilsPromedio {
 		}
 	}
 	
-	public static String obtenerCondicion(double[] notas, JComboBox<String> cboCondicion) {
+	public static String obtenerCondicion(double[] notas, JComboBox<String> cboCondicion) throws CampoSeleccionadoException {
 		String condicion = (String) cboCondicion.getSelectedItem();
+		JTextField a = null; 
+		
+	    if (condicion.equals("Seleccionar"))
+		{
+			CampoSeleccionadoException excepcionSeleccion = new CampoSeleccionadoException();
+			throw excepcionSeleccion;
+		}
 		
 		if(notas[0] < 6 || notas[1] < 6 || notas[2] < 6 || condicion.equals("Desaprobado")) 
 		{
@@ -30,7 +40,10 @@ public class UtilsPromedio {
 		{
 			return "Promocionado";
 		} 
+				
 		return "Regular";
 	}
 
+
+	
 }
