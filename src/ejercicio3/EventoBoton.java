@@ -27,7 +27,7 @@ public class EventoBoton implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		
+		try {
 		String mensaje = UtilsSeleccion.selectedRadioButton(sistemasOperativosRads).getText() + " - ";
 		
 		mensaje += UtilsSeleccion.chksToString(UtilsSeleccion.selectedCheckBoxes(especialidadesChks));
@@ -35,5 +35,10 @@ public class EventoBoton implements ActionListener
 		mensaje += horasTxt.getText();
 		
 		JOptionPane.showMessageDialog(null, mensaje, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+		
+		} catch (Exception ex) {
+			System.out.println(ex.toString());
+			JOptionPane.showMessageDialog(null, "Por favor complete todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }

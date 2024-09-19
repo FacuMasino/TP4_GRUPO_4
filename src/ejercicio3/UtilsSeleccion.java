@@ -1,5 +1,6 @@
 package ejercicio3;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JCheckBox;
@@ -7,7 +8,7 @@ import javax.swing.JRadioButton;
 
 public class UtilsSeleccion
 {
-	public static JRadioButton selectedRadioButton(List<JRadioButton> radsList)
+	public static JRadioButton selectedRadioButton(List<JRadioButton> radsList) throws IOException
 	{		
 		for (int i = 0; i < radsList.size(); i++)
 		{
@@ -18,11 +19,11 @@ public class UtilsSeleccion
             	return rad;
             }
         }
-		
-		return null;
+		// Si llegó a este punto es que no hay ningun radio button seleccionado
+		throw new IOException("No se seleccionó ninguna opción.");
 	}
 
-	public static List<JCheckBox> selectedCheckBoxes(List<JCheckBox> chksList)
+	public static List<JCheckBox> selectedCheckBoxes(List<JCheckBox> chksList) throws IOException
 	{
 		List<JCheckBox> selectedCheckBoxes = new ArrayList<>();
 		
@@ -52,4 +53,5 @@ public class UtilsSeleccion
 
 		return str;
 	}
+	
 }
