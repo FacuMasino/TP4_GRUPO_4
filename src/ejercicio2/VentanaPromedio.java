@@ -143,7 +143,7 @@ public class VentanaPromedio extends JDialog
 					
 					double redondeo = Math.pow(10, 2);
 					promedio = Math.round(promedio * redondeo)/ redondeo; 
-					if(promedio >10) {
+					if(promedio >10 || UtilsPromedio.notasInvalidas(jtfNota) ) {
 						promedioTxt.setText("Revise notas");
 					}
 					else {

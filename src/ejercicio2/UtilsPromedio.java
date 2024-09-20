@@ -22,6 +22,31 @@ public class UtilsPromedio {
 		}
 	}
 	
+	public static Boolean notasInvalidas(JTextField[] notas)
+	{
+		try 
+		{
+			double[] arrNotas = new double[3];
+			
+			for(int i = 0; i < 3; i++) 
+			{
+				arrNotas[i] = Double.parseDouble(notas[i].getText());
+				if(arrNotas[i] < 1 || arrNotas[i] > 10)
+				{
+					return true;
+				}
+			}
+		} 
+		
+		catch (NumberFormatException ex)
+		{
+			//throw ex;
+			System.out.println("Ingresa numeros....");
+		}
+		
+		return false;
+	}
+	
 	public static String obtenerCondicion(double[] notas, JComboBox<String> cboCondicion) throws CampoSeleccionadoException {
 		String condicion = (String) cboCondicion.getSelectedItem();
 		JTextField a = null; 

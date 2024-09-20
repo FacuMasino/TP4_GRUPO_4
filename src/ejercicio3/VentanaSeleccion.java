@@ -7,6 +7,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 
 public class VentanaSeleccion extends JDialog
@@ -20,9 +22,11 @@ public class VentanaSeleccion extends JDialog
 	private JCheckBox disenoChk;
 	private JTextField horasTxt;
 	private JButton btn;
+	private ButtonGroup grupoRadio;
 	
 	public VentanaSeleccion()
 	{
+		setModal(true);
 		setTitle("Promedio");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(200, 200, 480, 360);
@@ -59,6 +63,12 @@ public class VentanaSeleccion extends JDialog
         btn = new JButton("btn");
         btn.setBounds(193, 272, 117, 29);
         getContentPane().add(btn);
+        
+        //Se agregan los radio button a un grupo, para la seleccion exclusiva
+        grupoRadio = new ButtonGroup();
+        grupoRadio.add(winRad);
+        grupoRadio.add(macRad);
+        grupoRadio.add(linRad);
         
         List<JRadioButton> rads = new ArrayList<>();
         rads.add(winRad);
