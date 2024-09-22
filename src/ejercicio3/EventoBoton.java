@@ -32,7 +32,7 @@ public class EventoBoton implements ActionListener
 		
 		mensaje += UtilsSeleccion.chksToString(UtilsSeleccion.selectedCheckBoxes(especialidadesChks));
 		
-		mensaje += horasTxt.getText();
+		mensaje += horasTxt.getText() + " Hs";
 		
 		JOptionPane.showMessageDialog(null, mensaje, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 		

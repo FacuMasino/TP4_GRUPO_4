@@ -16,12 +16,21 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Rectangle;
+import javax.swing.UIManager;
+import javax.swing.border.MatteBorder;
 
 public class VentanaSeleccion extends JDialog
 {
@@ -39,9 +48,9 @@ public class VentanaSeleccion extends JDialog
 	public VentanaSeleccion()
 	{
 		setModal(true);
-		setTitle("Seleccion mutliple");
+		setTitle("Seleccion multiple");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(200, 200, 480, 360);
+        setBounds(200, 200, 480, 380);
         
         JPanel containerPanel = new JPanel();
         GridBagLayout gbl_containerPanel = new GridBagLayout();
@@ -59,8 +68,11 @@ public class VentanaSeleccion extends JDialog
         containerPanel.add(panelSistema, gbc_panelTop);
         
         JPanel panelSistema1 = new JPanel();
-        panelSistema1.setBorder(new TitledBorder(null, null, TitledBorder.LEADING, TitledBorder.TOP, null, null));
-        panelSistema1.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        panelSistema1.setForeground(Color.BLACK);
+        panelSistema1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLACK));
+        Border coloredBorder = BorderFactory.createLineBorder(Color.BLACK, 1);
+        panelSistema1.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        panelSistema1.setBorder(coloredBorder);
         
         JLabel sistemaLbl = new JLabel("Elige un sistema operativo");
         sistemaLbl.setHorizontalAlignment(SwingConstants.CENTER);
@@ -85,30 +97,42 @@ public class VentanaSeleccion extends JDialog
         gbc_panelB.weighty = 1.0;
         gbc_panelB.gridx = 0;
         gbc_panelB.gridy = 0;
-        panelEspecialidad.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(0, 10, 0, 10), new TitledBorder(null, null, TitledBorder.LEADING, TitledBorder.TOP)));
+        panelEspecialidad.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(10, 10, 0, 10), new TitledBorder(null, null, TitledBorder.LEADING, TitledBorder.TOP)));
+        Border coloredBorder1 = BorderFactory.createLineBorder(Color.BLACK, 1);
         panelEspecialidad.setLayout(new GridLayout(1, 2, 10, 30));
+        panelEspecialidad.setBorder(coloredBorder1);
         containerPanel.add(panelEspecialidad, gbc_panelB);
         
         JPanel panelEspecialidad1 = new JPanel();
+        panelEspecialidad1.setForeground(Color.BLACK);
+        panelEspecialidad1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
+        Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
+       
+        FlowLayout flowLayout = (FlowLayout) panelEspecialidad1.getLayout();
+        flowLayout.setVgap(10);
+        flowLayout.setHgap(10);
+       
         JLabel especialidadLbl = new JLabel("Elige una especialidad");
+        especialidadLbl.setBorder(new EmptyBorder(10,10,0,10));
         GridBagConstraints gbc_label = new GridBagConstraints();
-        especialidadLbl.setHorizontalAlignment(SwingConstants.LEFT);
+        especialidadLbl.setHorizontalAlignment(SwingConstants.CENTER);
         panelEspecialidad1.add(especialidadLbl);
         panelEspecialidad.add(panelEspecialidad1, gbc_label);
         
-        
         JPanel panelEspecialidad2 = new JPanel();
+        panelEspecialidad2.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
         GridBagConstraints gbc_checkbox = new GridBagConstraints();
-        panelEspecialidad2.setLayout(new GridLayout(3, 1, 5, 10));
-        prograChk = new JCheckBox("Programacion");
+        panelEspecialidad2.setLayout(new GridLayout(3, 1, 5, 12));
+        prograChk = new JCheckBox("Programación");
         prograChk.setBounds(21, 122, 128, 23);
         panelEspecialidad2.add(prograChk);
 
-        adminChk = new JCheckBox("Administracion");
+        adminChk = new JCheckBox("Administración");
         adminChk.setBounds(21, 122, 128, 23);
         panelEspecialidad2.add(adminChk);
 
-        disenoChk = new JCheckBox("Diseno grafico");
+        disenoChk = new JCheckBox("Diseño grafico");
+        disenoChk.setAlignmentX(Component.CENTER_ALIGNMENT);
         disenoChk.setBounds(21, 122, 128, 23);
         panelEspecialidad2.add(disenoChk);
 
@@ -124,7 +148,7 @@ public class VentanaSeleccion extends JDialog
         containerPanel.add(panelHoras, gbc_tex); 
         
         JPanel panelHoras1 = new JPanel();
-        panelHoras1.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        panelHoras1.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
         JLabel cantidadLbl = new JLabel("Cantidad de horas en el computador: ");
         horasTxt = new JTextField();
         horasTxt.setPreferredSize(new Dimension(150, 26));
@@ -141,6 +165,7 @@ public class VentanaSeleccion extends JDialog
         JPanel panelBtn1 = new JPanel();
         panelBtn1.setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 10));
         btn = new JButton("Aceptar");
+        btn.setHorizontalAlignment(SwingConstants.RIGHT);
         btn.setBounds(193, 272, 117, 29);
         panelBtn1.add(btn);
         panelBtn.add(panelBtn1);

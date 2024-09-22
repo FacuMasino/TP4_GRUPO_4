@@ -58,6 +58,7 @@ public class JFPrincipal extends JFrame {
 		JButton btnEjercicio1 = new JButton("Ejercicio 1");
 		btnPanel.add(btnEjercicio1);
 		btnEjercicio1.setAlignmentX(Component.CENTER_ALIGNMENT);
+		btnEjercicio1.setFocusPainted(false);
 		
 		btnEjercicio1.addActionListener(new ActionListener() {
 			
@@ -71,6 +72,7 @@ public class JFPrincipal extends JFrame {
 		JButton btnEjercicio2 = new JButton("Ejercicio 2");
 		btnPanel.add(btnEjercicio2);
 		btnEjercicio2.setAlignmentX(Component.CENTER_ALIGNMENT);
+		btnEjercicio2.setFocusPainted(false);
 		
 		btnEjercicio2.addActionListener(new ActionListener() {
 			
@@ -85,6 +87,7 @@ public class JFPrincipal extends JFrame {
 		JButton btnEjercicio3 = new JButton("Ejercicio 3");
 		btnPanel.add(btnEjercicio3);
 		btnEjercicio3.setAlignmentX(Component.CENTER_ALIGNMENT);
+		btnEjercicio3.setFocusPainted(false);
 		
 		btnEjercicio3.addActionListener(new ActionListener() {
 			
