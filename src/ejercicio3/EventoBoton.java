@@ -32,13 +32,17 @@ public class EventoBoton implements ActionListener
 		
 		mensaje += UtilsSeleccion.chksToString(UtilsSeleccion.selectedCheckBoxes(especialidadesChks));
 		
-		mensaje += horasTxt.getText() + " Hs";
-		
+		mensaje += UtilsSeleccion. horasTextVerificarNumero(horasTxt) + " Hs";
+			
 		JOptionPane.showMessageDialog(null, mensaje, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 		
-		} catch (Exception ex) {
+		} 
+	
+		catch (Exception ex) {
 			System.out.println(ex.toString());
-			JOptionPane.showMessageDialog(null, "Por favor complete todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Por favor verifique los datos ingresados", "Error", JOptionPane.ERROR_MESSAGE);
 		}
+		
+	
 	}
 }

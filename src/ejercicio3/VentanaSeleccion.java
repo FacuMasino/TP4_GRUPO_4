@@ -94,7 +94,7 @@ public class VentanaSeleccion extends JDialog
         JPanel panelEspecialidad = new JPanel();
         GridBagConstraints gbc_panelB = new GridBagConstraints();
         gbc_panelB.weightx = 3.0 / 4.0;
-        gbc_panelB.weighty = 1.0;
+        gbc_panelB.weighty = 1;
         gbc_panelB.gridx = 0;
         gbc_panelB.gridy = 0;
         panelEspecialidad.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(10, 10, 0, 10), new TitledBorder(null, null, TitledBorder.LEADING, TitledBorder.TOP)));
@@ -104,9 +104,8 @@ public class VentanaSeleccion extends JDialog
         containerPanel.add(panelEspecialidad, gbc_panelB);
         
         JPanel panelEspecialidad1 = new JPanel();
+        panelEspecialidad1.setBorder(new TitledBorder(null, "", TitledBorder.CENTER, TitledBorder.TOP, null, null));
         panelEspecialidad1.setForeground(Color.BLACK);
-        panelEspecialidad1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
-        Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
        
         FlowLayout flowLayout = (FlowLayout) panelEspecialidad1.getLayout();
         flowLayout.setVgap(10);
@@ -120,21 +119,25 @@ public class VentanaSeleccion extends JDialog
         panelEspecialidad.add(panelEspecialidad1, gbc_label);
         
         JPanel panelEspecialidad2 = new JPanel();
-        panelEspecialidad2.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
-        GridBagConstraints gbc_checkbox = new GridBagConstraints();
+         GridBagConstraints gbc_checkbox = new GridBagConstraints();
         panelEspecialidad2.setLayout(new GridLayout(3, 1, 5, 12));
         prograChk = new JCheckBox("Programación");
+        prograChk.setBorder(new EmptyBorder(4, 0, 4, 0));
         prograChk.setBounds(21, 122, 128, 23);
         panelEspecialidad2.add(prograChk);
 
         adminChk = new JCheckBox("Administración");
         adminChk.setBounds(21, 122, 128, 23);
+        adminChk.setBorder(new EmptyBorder(4, 0, 4, 0));
         panelEspecialidad2.add(adminChk);
 
         disenoChk = new JCheckBox("Diseño grafico");
         disenoChk.setAlignmentX(Component.CENTER_ALIGNMENT);
         disenoChk.setBounds(21, 122, 128, 23);
-        panelEspecialidad2.add(disenoChk);
+        disenoChk.setBorder(new EmptyBorder(4, 0, 4, 0));
+        panelEspecialidad2.add(disenoChk); 
+       
+    
 
         panelEspecialidad.add(panelEspecialidad2, gbc_checkbox);      
         
@@ -165,6 +168,7 @@ public class VentanaSeleccion extends JDialog
         JPanel panelBtn1 = new JPanel();
         panelBtn1.setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 10));
         btn = new JButton("Aceptar");
+        btn.setFocusPainted(false);
         btn.setHorizontalAlignment(SwingConstants.RIGHT);
         btn.setBounds(193, 272, 117, 29);
         panelBtn1.add(btn);
